@@ -3,6 +3,7 @@
 2. Show instructions
 3. on.("click") start button to begin first question
 4. define variables
+4.5. Create question and answer array
 5. fucntion questionResponse ()If {
     userInput===answer;
     console.log ("correct");
@@ -16,4 +17,4 @@ else {
     console.log ("time's up!);
 }
 6. display number of correct and incorrect answers from userInput
-7. startover button .on("click") resets the game (but does not refresh the page)
+7. startover button .on("click") resets the game (but does not refresh the pages)

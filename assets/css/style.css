@@ -5,3 +5,6 @@
 body {
     background:lightgoldenrodyellow;
 }
+#next-button{
+    display:none;
+}
