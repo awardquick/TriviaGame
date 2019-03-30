@@ -1,8 +1,6 @@
 var userInput = [];
-var answerOptions ={
- correct = 0,
-incorrect = 0,
-}
+var correct = 0;
+var incorrect = 0;
 var questionCounter = 0;
 var count=30;
 var questionArray = [{
@@ -25,7 +23,7 @@ $("#start-button").on("click", startGame);
 function startGame() {
     $("#start-button").hide();
     $("#next-button").show();
-    counter = setInterval(timer, 3000);
+    counter = setInterval(timer, 1000);
     displayQuestions();
 };
 
@@ -40,19 +38,19 @@ function timer() {
 function displayQuestions() {
     $("#start-text").hide();
     $("#question-text").html("<h3>" + questionArray[0].question + "</h3>");
-    var choicesArr = questionArray[0].choices;
-    var userInputArray = [];
-    for (i =0; i <choicesArr.length; i ++){
-        var answer = $("#choices-text");
-        answer.text(choicesArr[i]);
+    var choicesArr = questionArray[0].options;
+    for (var i =0; i < choicesArr.length; i ++){
+        var answer = $("#answer-text");
+        answer.text(choicesArr);
         answer.attr('data-id',i);
-        $("#choices-text").append (answer);
+        $("#answer-text").append (answer);
     }
     $("#next-button").on("click", displayQuestions);
+    $("#next-button").on("click", timesUp);
 }
-// function timesUp (){
-//     questionCounter++;
-//     newQuestion();
-//     setTimeout(timesUp,3000);
-// }
-//   
+function timesUp (){
+    questionArray++;
+    newQuestion();
+    setTimeout(timesUp,1000);
+}
+  
